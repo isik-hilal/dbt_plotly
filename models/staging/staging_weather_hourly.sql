@@ -14,7 +14,7 @@ hourly_data AS (
             ,(json_data->>'dwpt')::NUMERIC AS dewpoint_c
             ,(json_data->>'rhum')::NUMERIC AS humidity_perc
             ,(json_data->>'prcp')::NUMERIC AS precipitation_mm
-            ,(json_data->>'snow')::INTEGER AS snow_mm
+            ,((json_data->>'snow')::NUMERIC)::INTEGER AS snow_mm
             ,((json_data->>'wdir')::NUMERIC)::INTEGER AS wind_direction
             ,(json_data->>'wspd')::NUMERIC AS wind_speed_kmh
             ,(json_data->>'wpgt')::NUMERIC AS wind_peakgust_kmh
